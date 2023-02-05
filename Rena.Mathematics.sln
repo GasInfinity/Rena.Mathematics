@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rena.Mathematics", "Rena.Mathematics\Rena.Mathematics.csproj", "{E3368EF5-343B-4CCE-B131-D478101A316E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rena.Mathematics.Tests", "Rena.Mathematics.Tests\Rena.Mathematics.Tests.csproj", "{4A3E2ADE-5F54-4295-850B-676B1E0DA110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rena.Mathematics.Benchmarks", "Rena.Mathematics.Benchmarks\Rena.Mathematics.Benchmarks.csproj", "{A0AC63BD-AC59-4FBA-88DF-36DA7F2F9879}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3368EF5-343B-4CCE-B131-D478101A316E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3368EF5-343B-4CCE-B131-D478101A316E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3368EF5-343B-4CCE-B131-D478101A316E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3368EF5-343B-4CCE-B131-D478101A316E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A3E2ADE-5F54-4295-850B-676B1E0DA110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A3E2ADE-5F54-4295-850B-676B1E0DA110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A3E2ADE-5F54-4295-850B-676B1E0DA110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A3E2ADE-5F54-4295-850B-676B1E0DA110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F01BD6DD-1412-4B30-9848-8A2AC91AF232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01BD6DD-1412-4B30-9848-8A2AC91AF232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01BD6DD-1412-4B30-9848-8A2AC91AF232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01BD6DD-1412-4B30-9848-8A2AC91AF232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0AC63BD-AC59-4FBA-88DF-36DA7F2F9879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0AC63BD-AC59-4FBA-88DF-36DA7F2F9879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0AC63BD-AC59-4FBA-88DF-36DA7F2F9879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0AC63BD-AC59-4FBA-88DF-36DA7F2F9879}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
