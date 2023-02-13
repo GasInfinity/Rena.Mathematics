@@ -11,15 +11,15 @@ public class Vec2Tests
     [SetUp]
     public void SetUp()
     {
-        vectorA = new Vec2<float>(3, 4);
-        vectorB = new Vec2<float>(5, 6);
+        vectorA = new(3, 4);
+        vectorB = new(5, 6);
     }
 
     [Test]
     public void Addition_CorrectResult()
     {
         Vec2<float> result = vectorA + vectorB;
-        Vec2<float> expected = new Vec2<float>(8, 10);
+        Vec2<float> expected = new(8, 10);
 
         Assert.AreEqual(expected, result);
     }
@@ -28,7 +28,7 @@ public class Vec2Tests
     public void Subtraction_CorrectResult()
     {
         Vec2<float> result = vectorA - vectorB;
-        Vec2<float> expected = new Vec2<float>(-2, -2);
+        Vec2<float> expected = new(-2, -2);
 
         Assert.AreEqual(expected, result);
     }
@@ -37,7 +37,7 @@ public class Vec2Tests
     public void Dot_CorrectResult()
     {
         float result = Vec2<float>.Dot(vectorA, vectorB);
-        float expected = 39;
+        const float expected = 39;
 
         Assert.AreEqual(expected, result);
     }
@@ -46,7 +46,7 @@ public class Vec2Tests
     public void MultiplicationWithScalar_CorrectResult()
     {
         Vec2<float> result = vectorA * 5;
-        Vec2<float> expected = new Vec2<float>(15, 20);
+        Vec2<float> expected = new(15, 20);
 
         Assert.AreEqual(expected, result);
     }
@@ -55,7 +55,7 @@ public class Vec2Tests
     public void DivisionWithScalar_CorrectResult()
     {
         Vec2<float> result = vectorA / 2;
-        Vec2<float> expected = new Vec2<float>(1.5f, 2);
+        Vec2<float> expected = new(1.5f, 2);
 
         Assert.AreEqual(expected, result);
     }
@@ -64,7 +64,7 @@ public class Vec2Tests
     public void MultiplyComponents_CorrectResult()
     {
         Vec2<float> result = Vec2<float>.MultiplyComponents(vectorA, vectorB);
-        Vec2<float> expected = new Vec2<float>(15, 24);
+        Vec2<float> expected = new(15, 24);
 
         Assert.AreEqual(expected, result);
     }
@@ -73,7 +73,7 @@ public class Vec2Tests
     public void DivideComponents_CorrectResult()
     {
         Vec2<float> result = Vec2<float>.DivideComponents(vectorA, vectorB);
-        Vec2<float> expected = new Vec2<float>(3/5f, 4/6f);
+        Vec2<float> expected = new(3 / 5f, 4 / 6f);
 
         Assert.AreEqual(expected, result);
     }

@@ -11,15 +11,15 @@ public class Vec4Tests
     [SetUp]
     public void SetUp()
     {
-        vectorA = new Vec4<float>(1, 2, 3, 4);
-        vectorB = new Vec4<float>(5, 6, 7, 8);
+        vectorA = new(1, 2, 3, 4);
+        vectorB = new(5, 6, 7, 8);
     }
 
     [Test]
     public void Addition_CorrectResult()
     {
         Vec4<float> result = vectorA + vectorB;
-        Vec4<float> expected = new Vec4<float>(6, 8, 10, 12);
+        Vec4<float> expected = new(6, 8, 10, 12);
 
         Assert.AreEqual(expected, result);
     }
@@ -28,7 +28,7 @@ public class Vec4Tests
     public void Subtraction_CorrectResult()
     {
         Vec4<float> result = vectorA - vectorB;
-        Vec4<float> expected = new Vec4<float>(-4, -4, -4, -4);
+        Vec4<float> expected = new(-4, -4, -4, -4);
 
         Assert.AreEqual(expected, result);
     }
@@ -37,7 +37,7 @@ public class Vec4Tests
     public void Dot_CorrectResult()
     {
         float result = Vec4<float>.Dot(vectorA, vectorB);
-        float expected = 70;
+        const float expected = 70;
 
         Assert.AreEqual(expected, result);
     }
@@ -46,7 +46,7 @@ public class Vec4Tests
     public void MultiplicationWithScalar_CorrectResult()
     {
         Vec4<float> result = vectorA * 2;
-        Vec4<float> expected = new Vec4<float>(2, 4, 6, 8);
+        Vec4<float> expected = new(2, 4, 6, 8);
 
         Assert.AreEqual(expected, result);
     }
@@ -55,7 +55,7 @@ public class Vec4Tests
     public void DivisionWithScalar_CorrectResult()
     {
         Vec4<float> result = vectorA / 2;
-        Vec4<float> expected = new Vec4<float>(0.5f, 1, 1.5f, 2);
+        Vec4<float> expected = new(0.5f, 1, 1.5f, 2);
 
         Assert.AreEqual(expected, result);
     }

@@ -19,7 +19,7 @@ public readonly partial struct Vec2<TNumber> : INumericVector<Vec2<TNumber>, TNu
 
     public readonly TNumber X { get; init; }
     public readonly TNumber Y { get; init; }
-    
+
     public TNumber LengthSquared
         => Dot(this, this);
 
