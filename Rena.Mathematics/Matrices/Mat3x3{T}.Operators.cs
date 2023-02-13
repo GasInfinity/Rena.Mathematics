@@ -30,7 +30,7 @@ public readonly partial struct Mat3x3<TNumber>
 
     public static Mat3x3<TNumber> operator /(Mat3x3<TNumber> left, TNumber right)
         => new(left.X / right, left.Y / right, left.Z / right);
-    
+
     public static bool operator ==(Mat3x3<TNumber> left, Mat3x3<TNumber> right)
         => left.Equals(right);
 

@@ -25,32 +25,32 @@ public static class Mat3x3
 
     public static Mat3x3<TNumber> Scale<TNumber>(TNumber x, TNumber y)
         where TNumber : struct, INumberBase<TNumber>
-        => new(x, TNumber.Zero, TNumber.Zero, 
+        => new(x, TNumber.Zero, TNumber.Zero,
                TNumber.Zero, y, TNumber.Zero,
                TNumber.Zero, TNumber.Zero, TNumber.One);
 
     public static Mat3x3<TNumber> Scale<TNumber>(Vec2<TNumber> xy)
         where TNumber : struct, INumberBase<TNumber>
         => Scale(xy.X, xy.Y);
-    
+
     public static Mat3x3<TNumber> Shear<TNumber>(TNumber x, TNumber y)
         where TNumber : struct, INumberBase<TNumber>
         => new(TNumber.One, x, TNumber.Zero,
                y, TNumber.One, TNumber.Zero,
                TNumber.Zero, TNumber.Zero, TNumber.One);
-    
+
     public static Mat3x3<TNumber> Shear<TNumber>(Vec2<TNumber> xy)
         where TNumber : struct, INumberBase<TNumber>
         => Shear(xy.X, xy.Y);
-    
+
     public static Mat3x3<TNumber> Ortho<TNumber>(TNumber left, TNumber top, TNumber right, TNumber bottom)
         where TNumber : struct, INumberBase<TNumber>
     {
         TNumber rightMinusLeft = right - left;
         TNumber topMinusBottom = top - bottom;
-        
-        return new(TNumber.CreateTruncating(2) / rightMinusLeft, TNumber.Zero, -((right + left) / (rightMinusLeft)),
-                   TNumber.Zero, TNumber.CreateTruncating(2) / topMinusBottom, -((top + bottom) / (topMinusBottom)),
+
+        return new(TNumber.CreateTruncating(2) / rightMinusLeft, TNumber.Zero, -((right + left) / rightMinusLeft),
+                   TNumber.Zero, TNumber.CreateTruncating(2) / topMinusBottom, -((top + bottom) / topMinusBottom),
                    TNumber.Zero, TNumber.Zero, TNumber.One);
     }
 }

@@ -25,7 +25,7 @@ public static class Mat4x4
     public static Mat4x4<TNumber> Scale<TNumber>(Vec3<TNumber> xyz)
         where TNumber : struct, INumberBase<TNumber>
         => Scale(xyz.X, xyz.Y, xyz.Z);
-    
+
     public static Mat4x4<TNumber> Ortho<TNumber>(TNumber left, TNumber top, TNumber right, TNumber bottom, TNumber near, TNumber far)
         where TNumber : struct, INumberBase<TNumber>
     {
@@ -33,9 +33,9 @@ public static class Mat4x4
         TNumber topMinusBottom = top - bottom;
         TNumber farMinusNear = far - near;
 
-        return new(TNumber.CreateTruncating(2) / rightMinusLeft, TNumber.Zero, TNumber.Zero, -((right + left) / (rightMinusLeft)),
-                   TNumber.Zero, TNumber.CreateTruncating(2) / topMinusBottom, TNumber.Zero, -((top + bottom) / (topMinusBottom)),
-                   TNumber.Zero, TNumber.Zero, TNumber.CreateTruncating(-2) / farMinusNear, -((far + near) / (farMinusNear)),
+        return new(TNumber.CreateTruncating(2) / rightMinusLeft, TNumber.Zero, TNumber.Zero, -((right + left) / rightMinusLeft),
+                   TNumber.Zero, TNumber.CreateTruncating(2) / topMinusBottom, TNumber.Zero, -((top + bottom) / topMinusBottom),
+                   TNumber.Zero, TNumber.Zero, TNumber.CreateTruncating(-2) / farMinusNear, -((far + near) / farMinusNear),
                    TNumber.Zero, TNumber.Zero, TNumber.Zero, TNumber.One);
     }
 }

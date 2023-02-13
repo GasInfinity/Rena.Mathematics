@@ -22,10 +22,10 @@ public static class Quat
         (TFloatingNumber ySin, TFloatingNumber yCos) = TFloatingNumber.SinCos(y.Value / TFloatingNumber.CreateTruncating(2));
         (TFloatingNumber zSin, TFloatingNumber zCos) = TFloatingNumber.SinCos(z.Value / TFloatingNumber.CreateTruncating(2));
 
-        return new(xCos * yCos * zCos + xSin * ySin * zSin,
-                   xSin * yCos * zCos - xCos * ySin * zSin,
-                   xCos * ySin * zCos + xSin * yCos * zSin,
-                   xCos * yCos * zSin - xSin * ySin * zCos);
+        return new((xCos * yCos * zCos) + (xSin * ySin * zSin),
+                   (xSin * yCos * zCos) - (xCos * ySin * zSin),
+                   (xCos * ySin * zCos) + (xSin * yCos * zSin),
+                   (xCos * yCos * zSin) - (xSin * ySin * zCos));
     }
 
     // The Vec3 stores the values as degrees
@@ -40,11 +40,11 @@ public static class Quat
     public static Quat<TFloatingNumber> Unit<TFloatingNumber>(this Quat<TFloatingNumber> v)
         where TFloatingNumber : struct, INumberBase<TFloatingNumber>, IRootFunctions<TFloatingNumber>
         => v / v.Length();
-    
+
     public static Quat<TSignedNumber> Conjugate<TSignedNumber>(this Quat<TSignedNumber> v)
         where TSignedNumber : struct, ISignedNumber<TSignedNumber>
-        => new (v.W, -v.X, -v.Y, -v.Z);
-    
+        => new(v.W, -v.X, -v.Y, -v.Z);
+
     public static Vec3<TSignedNumber> Rotate<TSignedNumber>(this Quat<TSignedNumber> v, Vec3<TSignedNumber> position)
         where TSignedNumber : struct, ISignedNumber<TSignedNumber>
     {
