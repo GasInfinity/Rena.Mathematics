@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Numerics;
 
 namespace Rena.Mathematics;
@@ -37,5 +38,11 @@ public readonly partial struct Mat3x3<TNumber> : IMatrix<Mat3x3<TNumber>, TNumbe
         => HashCode.Combine(X, Y, Z);
 
     public override string ToString()
+        => ToString(null, null);
+
+    public string ToString(string? format, IFormatProvider? formatProvider)
         => $"({X},\n {Y},\n {Z})";
+
+    public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+        => destination.TryWrite(CultureInfo.InvariantCulture, $"({X},\n {Y},\n {Z})", out charsWritten);
 }

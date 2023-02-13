@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Numerics;
 
 namespace Rena.Mathematics;
@@ -45,5 +46,11 @@ public readonly partial struct Vec4<TNumber> : INumericVector<Vec4<TNumber>, TNu
         => HashCode.Combine(X, Y, Z, W);
 
     public override string ToString()
+        => ToString(null, null);
+
+    public string ToString(string? format, IFormatProvider? formatProvider)
         => $"({X}, {Y}, {Z}, {W})";
+
+    public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+        => destination.TryWrite(CultureInfo.InvariantCulture, $"({X}, {Y}, {Z}, {W})", out charsWritten);
 }

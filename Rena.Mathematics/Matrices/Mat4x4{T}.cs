@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Numerics;
 
 namespace Rena.Mathematics;
@@ -39,28 +40,11 @@ public readonly partial struct Mat4x4<TNumber> : IMatrix<Mat4x4<TNumber>, TNumbe
         => HashCode.Combine(X, Y, Z, W);
 
     public override string ToString()
+        => ToString(null, null);
+
+    public string ToString(string? format, IFormatProvider? formatProvider)
         => $"({X},\n {Y},\n {Z},\n {W})";
 
-    public static Mat4x4<TNumber> Translation(TNumber x, TNumber y, TNumber z)
-        => new(TNumber.One, TNumber.Zero, TNumber.Zero, x,
-               TNumber.Zero, TNumber.One, TNumber.Zero, y,
-               TNumber.Zero, TNumber.Zero, TNumber.One, z,
-               TNumber.Zero, TNumber.Zero, TNumber.Zero, TNumber.One);
-
-    public static Mat4x4<TNumber> Translation(Vec3<TNumber> xyz)
-        => Translation(xyz.X, xyz.Y, xyz.Z);
-
-    public static Mat4x4<TNumber> Rotation()
-    {
-        return default;
-    }
-
-    public static Mat4x4<TNumber> Scale(TNumber x, TNumber y, TNumber z)
-        => new(x, TNumber.Zero, TNumber.Zero, TNumber.Zero,
-               TNumber.Zero, y, TNumber.Zero, TNumber.Zero,
-               TNumber.Zero, TNumber.Zero, z, TNumber.Zero,
-               TNumber.Zero, TNumber.Zero, TNumber.Zero, TNumber.One);
-
-    public static Mat4x4<TNumber> Scale(Vec3<TNumber> xyz)
-        => Scale(xyz.X, xyz.Y, xyz.Z);
+    public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+        => destination.TryWrite(CultureInfo.InvariantCulture, $"({X},\n {Y},\n {Z},\n {W})", out charsWritten);
 }
