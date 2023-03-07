@@ -7,11 +7,12 @@
   </PropertyGroup>
   
   <ItemGroup Label="Local dependencies">
-    <ProjectReference Include="..\Rena.Mathematics\Rena.Mathematics.csproj"/>
+    <ProjectReference Include="..\Rena.Mathematics\Rena.Mathematics.csproj" />
   </ItemGroup>
 
   <ItemGroup Label="Nuget dependencies">
-    <PackageReference Include="NUnit" Version="3.*"/>
+    <PackageReference Include="NUnit" Version="3.*" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.8.0-*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.*" />
   </ItemGroup>

@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 namespace Rena.Mathematics.Tests;
 
 [TestFixture]
