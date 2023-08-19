@@ -19,7 +19,7 @@ public class Vec2Tests
         Vec2<float> result = vectorA + vectorB;
         Vec2<float> expected = new(8, 10);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -28,7 +28,7 @@ public class Vec2Tests
         Vec2<float> result = vectorA - vectorB;
         Vec2<float> expected = new(-2, -2);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -37,7 +37,7 @@ public class Vec2Tests
         float result = Vec2<float>.Dot(vectorA, vectorB);
         const float expected = 39;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -46,7 +46,7 @@ public class Vec2Tests
         Vec2<float> result = vectorA * 5;
         Vec2<float> expected = new(15, 20);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -55,7 +55,7 @@ public class Vec2Tests
         Vec2<float> result = vectorA / 2;
         Vec2<float> expected = new(1.5f, 2);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -64,7 +64,7 @@ public class Vec2Tests
         Vec2<float> result = Vec2<float>.MultiplyComponents(vectorA, vectorB);
         Vec2<float> expected = new(15, 24);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -73,6 +73,6 @@ public class Vec2Tests
         Vec2<float> result = Vec2<float>.DivideComponents(vectorA, vectorB);
         Vec2<float> expected = new(3 / 5f, 4 / 6f);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 }

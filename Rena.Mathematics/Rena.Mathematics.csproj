@@ -1,10 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Rena.Mathematics</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
@@ -14,12 +15,12 @@
     <Description>A math library for graphics programming supporting generic math.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>logo-simple.png</PackageIcon>
+    <PackageIcon>logo-math.png</PackageIcon>
     <RepositoryUrl>https://github.com/GasInfinity/Rena.Mathematics</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup Label="Extra files">
     <None Include="../README.md" Pack="true" PackagePath="/" />
-    <None Include="../assets/logo-simple.png" Pack="true" PackagePath="/" />
+    <None Include="../assets/logo-math.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 </Project>

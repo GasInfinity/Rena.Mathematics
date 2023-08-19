@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 namespace Rena.Mathematics;
 
-// TODO: Simd on .NET 8
+// TODO: Simd for Vec3!
 public readonly partial struct Vec3<TNumber>
 {
     public static explicit operator Vec2<TNumber>(Vec3<TNumber> self)
@@ -10,7 +10,6 @@ public readonly partial struct Vec3<TNumber>
     public static explicit operator Vec3<TNumber>(Vec2<TNumber> self)
         => new(self, TNumber.Zero);
 
-    // TODO: Why does Unsafe.As use the stack with pointless mov's? :(
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Equals(Vec3<TNumber> other)
         => X == other.X && Y == other.Y && Z == other.Z;

@@ -19,7 +19,7 @@ public class Vec3Tests
         Vec3<float> result = vectorA + vectorB;
         Vec3<float> expected = new(8, 10, 12);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -28,7 +28,7 @@ public class Vec3Tests
         Vec3<float> result = vectorA - vectorB;
         Vec3<float> expected = new(-2, -2, -2);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -37,7 +37,7 @@ public class Vec3Tests
         float result = Vec3<float>.Dot(vectorA, vectorB);
         const float expected = 74;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -46,7 +46,7 @@ public class Vec3Tests
         Vec3<float> result = Vec3<float>.Cross(vectorA, vectorB);
         Vec3<float> expected = new(-2, 4, -2);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -55,7 +55,7 @@ public class Vec3Tests
         Vec3<float> result = vectorA * 5;
         Vec3<float> expected = new(15, 20, 25);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -64,6 +64,6 @@ public class Vec3Tests
         Vec3<float> result = vectorA / 2;
         Vec3<float> expected = new(1.5f, 2, 2.5f);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 }

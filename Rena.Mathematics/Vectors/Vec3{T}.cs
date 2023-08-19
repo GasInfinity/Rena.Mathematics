@@ -7,7 +7,6 @@ namespace Rena.Mathematics;
 public readonly partial struct Vec3<TNumber> : INumericVector<Vec3<TNumber>, TNumber>
     where TNumber : struct, INumberBase<TNumber>
 {
-    [SuppressMessage("Design", "RCS1158")]
     public static int Dimensions
         => 3;
 

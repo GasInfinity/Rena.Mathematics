@@ -35,7 +35,7 @@ public class Mat4x4Tests
             42, 44, 46, 48
         );
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -49,7 +49,7 @@ public class Mat4x4Tests
             -16, -16, -16, -16
         );
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -63,7 +63,7 @@ public class Mat4x4Tests
             26, 28, 30, 32
         );
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -78,7 +78,7 @@ public class Mat4x4Tests
 
         Mat4x4<float> result = matrixA / 2;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -92,7 +92,7 @@ public class Mat4x4Tests
             1354, 1412, 1470, 1528
         );
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -102,6 +102,6 @@ public class Mat4x4Tests
         Vec4<float> result = matrixA * vector;
         Vec4<float> expected = new(30, 70, 110, 150);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 }

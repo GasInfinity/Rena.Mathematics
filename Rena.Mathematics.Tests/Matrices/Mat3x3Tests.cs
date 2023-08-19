@@ -20,7 +20,7 @@ public class Mat3x3Tests
 
         Mat3x3<float> result = matrix1 + matrix2;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -30,7 +30,7 @@ public class Mat3x3Tests
 
         Mat3x3<float> result = matrix1 - matrix2;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -40,7 +40,7 @@ public class Mat3x3Tests
 
         Mat3x3<float> result = matrix1 * 2;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -50,7 +50,7 @@ public class Mat3x3Tests
 
         Mat3x3<float> result = matrix1 / 2;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -60,7 +60,7 @@ public class Mat3x3Tests
 
         Mat3x3<float> result = matrix1 * matrix2;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -71,6 +71,6 @@ public class Mat3x3Tests
 
         Vec3<float> result = matrix1 * vector;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 }

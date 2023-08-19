@@ -19,7 +19,7 @@ public class Vec4Tests
         Vec4<float> result = vectorA + vectorB;
         Vec4<float> expected = new(6, 8, 10, 12);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -28,7 +28,7 @@ public class Vec4Tests
         Vec4<float> result = vectorA - vectorB;
         Vec4<float> expected = new(-4, -4, -4, -4);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -37,7 +37,7 @@ public class Vec4Tests
         float result = Vec4<float>.Dot(vectorA, vectorB);
         const float expected = 70;
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -46,7 +46,7 @@ public class Vec4Tests
         Vec4<float> result = vectorA * 2;
         Vec4<float> expected = new(2, 4, 6, 8);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -55,6 +55,6 @@ public class Vec4Tests
         Vec4<float> result = vectorA / 2;
         Vec4<float> expected = new(0.5f, 1, 1.5f, 2);
 
-        Assert.AreEqual(expected, result);
+        Assert.That(result, Is.EqualTo(expected));
     }
 }

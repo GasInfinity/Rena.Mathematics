@@ -7,9 +7,8 @@ namespace Rena.Mathematics;
 public readonly partial struct Vec4<TNumber> : INumericVector<Vec4<TNumber>, TNumber>
     where TNumber : struct, INumberBase<TNumber>
 {
-    [SuppressMessage("Design", "RCS1158")]
     public static int Dimensions
-        => 2;
+        => 4;
 
     public static Vec4<TNumber> AdditiveIdentity
         => new(TNumber.Zero);
