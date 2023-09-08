@@ -69,7 +69,7 @@ public class Mat3x3Tests
         Vec3<float> vector = new(1, 2, 3);
         Vec3<float> expected = new(14, 32, 50);
 
-        Vec3<float> result = matrix1 * vector;
+        Vec3<float> result = vector * matrix1;
 
         Assert.That(result, Is.EqualTo(expected));
     }

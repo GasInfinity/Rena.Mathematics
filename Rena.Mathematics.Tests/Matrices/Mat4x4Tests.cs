@@ -99,7 +99,7 @@ public class Mat4x4Tests
     public void Vec4Multiplication_CorrectResult()
     {
         Vec4<float> vector = new(1, 2, 3, 4);
-        Vec4<float> result = matrixA * vector;
+        Vec4<float> result = vector * matrixA;
         Vec4<float> expected = new(30, 70, 110, 150);
 
         Assert.That(result, Is.EqualTo(expected));

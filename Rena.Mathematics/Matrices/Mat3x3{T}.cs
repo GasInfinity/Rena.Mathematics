@@ -7,11 +7,9 @@ namespace Rena.Mathematics;
 public readonly partial struct Mat3x3<TNumber> : IMatrix<Mat3x3<TNumber>, TNumber>
     where TNumber : struct, INumberBase<TNumber>
 {
-    [SuppressMessage("Design", "RCS1158")]
     public static int Rows
         => 3;
 
-    [SuppressMessage("Design", "RCS1158")]
     public static int Columns
         => 3;
 
@@ -30,6 +28,11 @@ public readonly partial struct Mat3x3<TNumber> : IMatrix<Mat3x3<TNumber>, TNumbe
                   TNumber zx, TNumber zy, TNumber zz) : this(new(xx, xy, xz), new(yx, yy, yz), new(zx, zy, zz))
     {
     }
+
+    public Mat3x3<TNumber> Transpose()
+        => new(X.X, Y.X, Z.X,
+               X.Y, Y.Y, Z.Y,
+               X.Z, Y.Z, Z.Z);
 
     public override bool Equals(object? obj)
         => obj is Mat3x3<TNumber> mat && Equals(mat);

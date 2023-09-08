@@ -10,4 +10,6 @@ public interface IMatrix<T, TNumber> : IAdditionOperators<T, T, T>, ISubtraction
     static abstract int Columns { get; }
 
     static abstract T Identity { get; }
+
+    T Transpose();
 }

@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
 
@@ -7,11 +6,9 @@ namespace Rena.Mathematics;
 public readonly partial struct Mat4x4<TNumber> : IMatrix<Mat4x4<TNumber>, TNumber>
     where TNumber : struct, INumberBase<TNumber>
 {
-    [SuppressMessage("Design", "RCS1158")]
     public static int Rows
         => 4;
 
-    [SuppressMessage("Design", "RCS1158")]
     public static int Columns
         => 4;
 
@@ -33,6 +30,12 @@ public readonly partial struct Mat4x4<TNumber> : IMatrix<Mat4x4<TNumber>, TNumbe
     {
     }
 
+    public Mat4x4<TNumber> Transpose() // TODO: Simd Shuffle
+        => new(X.X, Y.X, Z.X, W.X,
+               X.Y, Y.Y, Z.Y, W.Y,
+               X.Z, Y.Z, Z.Z, W.Z,
+               X.W, Y.W, Z.W, W.W);
+
     public override bool Equals(object? obj)
         => obj is Mat4x4<TNumber> mat && Equals(mat);
 
@@ -47,4 +50,5 @@ public readonly partial struct Mat4x4<TNumber> : IMatrix<Mat4x4<TNumber>, TNumbe
 
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
         => destination.TryWrite(CultureInfo.InvariantCulture, $"({X},\n {Y},\n {Z},\n {W})", out charsWritten);
+
 }

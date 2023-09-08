@@ -13,17 +13,15 @@ public readonly partial struct Mat3x3<TNumber>
 
     public static Mat3x3<TNumber> operator *(Mat3x3<TNumber> left, Mat3x3<TNumber> right)
     {
-        Vec3<TNumber> first = new(right.X.X, right.Y.X, right.Z.X);
-        Vec3<TNumber> second = new(right.X.Y, right.Y.Y, right.Z.Y);
-        Vec3<TNumber> third = new(right.X.Z, right.Y.Z, right.Z.Z);
+        Mat3x3<TNumber> rightTransposed = right.Transpose();
 
-        return new(Vec3<TNumber>.Dot(left.X, first), Vec3<TNumber>.Dot(left.X, second), Vec3<TNumber>.Dot(left.X, third),
-                   Vec3<TNumber>.Dot(left.Y, first), Vec3<TNumber>.Dot(left.Y, second), Vec3<TNumber>.Dot(left.Y, third),
-                   Vec3<TNumber>.Dot(left.Z, first), Vec3<TNumber>.Dot(left.Z, second), Vec3<TNumber>.Dot(left.Z, third));
+        return new(Vec3<TNumber>.Dot(left.X, rightTransposed.X), Vec3<TNumber>.Dot(left.X, rightTransposed.Y), Vec3<TNumber>.Dot(left.X, rightTransposed.Z),
+                   Vec3<TNumber>.Dot(left.Y, rightTransposed.X), Vec3<TNumber>.Dot(left.Y, rightTransposed.Y), Vec3<TNumber>.Dot(left.Y, rightTransposed.Z),
+                   Vec3<TNumber>.Dot(left.Z, rightTransposed.X), Vec3<TNumber>.Dot(left.Z, rightTransposed.Y), Vec3<TNumber>.Dot(left.Z, rightTransposed.Z));
     }
 
-    public static Vec3<TNumber> operator *(Mat3x3<TNumber> left, Vec3<TNumber> right)
-        => new(Vec3<TNumber>.Dot(left.X, right), Vec3<TNumber>.Dot(left.Y, right), Vec3<TNumber>.Dot(left.Z, right));
+    public static Vec3<TNumber> operator *(Vec3<TNumber> left, Mat3x3<TNumber> right)
+        => new(Vec3<TNumber>.Dot(left, right.X), Vec3<TNumber>.Dot(left, right.Y), Vec3<TNumber>.Dot(left, right.Z));
 
     public static Mat3x3<TNumber> operator *(Mat3x3<TNumber> left, TNumber right)
         => new(left.X * right, left.Y * right, left.Z * right);
