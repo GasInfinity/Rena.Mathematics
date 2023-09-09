@@ -52,4 +52,12 @@ public readonly partial struct Vec4<TNumber> : INumericVector<Vec4<TNumber>, TNu
 
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
         => destination.TryWrite(CultureInfo.InvariantCulture, $"({X}, {Y}, {Z}, {W})", out charsWritten);
+
+    public static Vec4<TNumber> CreateTruncating<TOtherNumber>(Vec4<TOtherNumber> other)
+        where TOtherNumber : struct, INumberBase<TOtherNumber>
+        => new(TNumber.CreateTruncating(other.X), TNumber.CreateTruncating(other.Y), TNumber.CreateTruncating(other.Z), TNumber.CreateTruncating(other.W));
+
+    public static Vec4<TNumber> CreateSaturating<TOtherNumber>(Vec4<TOtherNumber> other)
+        where TOtherNumber : struct, INumberBase<TOtherNumber>
+        => new(TNumber.CreateSaturating(other.X), TNumber.CreateSaturating(other.Y), TNumber.CreateSaturating(other.Z), TNumber.CreateSaturating(other.W));
 }

@@ -47,4 +47,12 @@ public readonly partial struct Vec3<TNumber> : INumericVector<Vec3<TNumber>, TNu
 
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
         => destination.TryWrite(CultureInfo.InvariantCulture, $"({X}, {Y}, {Z})", out charsWritten);
+
+    public static Vec3<TNumber> CreateTruncating<TOtherNumber>(Vec3<TOtherNumber> other)
+        where TOtherNumber : struct, INumberBase<TOtherNumber>
+        => new(TNumber.CreateTruncating(other.X), TNumber.CreateTruncating(other.Y), TNumber.CreateTruncating(other.Z));
+
+    public static Vec3<TNumber> CreateSaturating<TOtherNumber>(Vec3<TOtherNumber> other)
+        where TOtherNumber : struct, INumberBase<TOtherNumber>
+        => new(TNumber.CreateSaturating(other.X), TNumber.CreateSaturating(other.Y), TNumber.CreateSaturating(other.Z));
 }
