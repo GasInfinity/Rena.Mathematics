@@ -13,8 +13,8 @@ public unsafe partial struct Vec2<TNumber>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Equals(Vec2<TNumber> other)
     {
-        if (sizeof(Vector128<TNumber>) == sizeof(Vec2<TNumber>) && Vector128<TNumber>.IsSupported)
-            return Unsafe.BitCast<Vec2<TNumber>, Vector128<TNumber>>(this) == Unsafe.BitCast<Vec2<TNumber>, Vector128<TNumber>>(other);
+        if (sizeof(Vector128<TNumber>) == sizeof(Vec2<TNumber>) && Vector128<TNumber>.IsSupported && Vector128.IsHardwareAccelerated)
+            return AsVector128Unsafe() == other.AsVector128Unsafe();
         
         if (sizeof(Vector64<TNumber>) == sizeof(Vec2<TNumber>) && Vector64<TNumber>.IsSupported)
         {
@@ -174,9 +174,9 @@ public unsafe partial struct Vec2<TNumber>
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Vec2<TNumber> AsVec2LowerUnsafe(Vector128<TNumber> v)
-        => Unsafe.BitCast<ulong, Vec2<TNumber>>(Unsafe.BitCast<Vector128<TNumber>, Vector128<ulong>>(v).ToScalar());
+        => Unsafe.BitCast<ulong, Vec2<TNumber>>(v.AsUInt64().ToScalar());
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Vec2<TNumber> AsVec2Unsafe(Vector64<TNumber> v)
-        => Unsafe.BitCast<Vector64<TNumber>, Vec2<TNumber>>(v);
+        => Unsafe.BitCast<ulong, Vec2<TNumber>>(v.AsUInt64().ToScalar());
 }

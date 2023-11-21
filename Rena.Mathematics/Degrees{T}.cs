@@ -3,16 +3,13 @@ using System.Numerics;
 
 namespace Rena.Mathematics;
 
-public readonly struct Degrees<TNumber> : ISpanFormattable
+public readonly struct Degrees<TNumber>(TNumber value) : ISpanFormattable
     where TNumber : struct, INumberBase<TNumber>, IFloatingPointConstants<TNumber>
 {
     private static readonly TNumber Deg2Rad = TNumber.Pi / TNumber.CreateTruncating(180);
     private static readonly TNumber Rad2Deg = TNumber.CreateTruncating(180) / TNumber.Pi;
 
-    public TNumber Value { get; init; }
-
-    public Degrees(TNumber value)
-        => Value = value;
+    public readonly TNumber Value = value;
 
     public override string ToString()
         => ToString(null, null);

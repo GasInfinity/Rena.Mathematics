@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
 
@@ -16,9 +15,9 @@ public readonly partial struct Mat3x3<TNumber> : IMatrix<Mat3x3<TNumber>, TNumbe
     public static Mat3x3<TNumber> Identity
         => new(Vec3<TNumber>.UnitX, Vec3<TNumber>.UnitY, Vec3<TNumber>.UnitZ);
 
-    public Vec3<TNumber> X { get; init; }
-    public Vec3<TNumber> Y { get; init; }
-    public Vec3<TNumber> Z { get; init; }
+    public readonly Vec3<TNumber> X;
+    public readonly Vec3<TNumber> Y;
+    public readonly Vec3<TNumber> Z;
 
     public Mat3x3(Vec3<TNumber> x, Vec3<TNumber> y, Vec3<TNumber> z)
         => (X, Y, Z) = (x, y, z);

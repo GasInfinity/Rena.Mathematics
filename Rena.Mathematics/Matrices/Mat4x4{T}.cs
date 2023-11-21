@@ -15,10 +15,10 @@ public readonly partial struct Mat4x4<TNumber> : IMatrix<Mat4x4<TNumber>, TNumbe
     public static Mat4x4<TNumber> Identity
         => new(Vec4<TNumber>.UnitX, Vec4<TNumber>.UnitY, Vec4<TNumber>.UnitZ, Vec4<TNumber>.UnitW);
 
-    public Vec4<TNumber> X { get; init; }
-    public Vec4<TNumber> Y { get; init; }
-    public Vec4<TNumber> Z { get; init; }
-    public Vec4<TNumber> W { get; init; }
+    public readonly Vec4<TNumber> X;
+    public readonly Vec4<TNumber> Y;
+    public readonly Vec4<TNumber> Z;
+    public readonly Vec4<TNumber> W;
 
     public Mat4x4(Vec4<TNumber> x, Vec4<TNumber> y, Vec4<TNumber> z, Vec4<TNumber> w)
         => (X, Y, Z, W) = (x, y, z, w);

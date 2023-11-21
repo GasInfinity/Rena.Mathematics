@@ -3,15 +3,12 @@ using System.Numerics;
 
 namespace Rena.Mathematics;
 
-public readonly struct Radians<TNumber> : ISpanFormattable
+public readonly struct Radians<TNumber>(TNumber value) : ISpanFormattable
     where TNumber : struct, INumberBase<TNumber>, IFloatingPointConstants<TNumber>
 {
     private static readonly TNumber Rad2Deg = TNumber.CreateTruncating(180) / TNumber.Pi;
     private static readonly TNumber Deg2Rad = TNumber.Pi / TNumber.CreateTruncating(180);
-    public TNumber Value { get; init; }
-
-    public Radians(TNumber value)
-        => Value = value;
+    public readonly TNumber Value = value;
 
     public override string ToString()
         => ToString(null, null);

@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
 
@@ -18,10 +17,10 @@ public readonly partial struct Vec4<TNumber> : INumericVector<Vec4<TNumber>, TNu
     public static readonly Vec4<TNumber> UnitZ = new(TNumber.Zero, TNumber.Zero, TNumber.One, TNumber.Zero);
     public static readonly Vec4<TNumber> UnitW = new(TNumber.Zero, TNumber.Zero, TNumber.Zero, TNumber.One);
 
-    public readonly TNumber X { get; init; }
-    public readonly TNumber Y { get; init; }
-    public readonly TNumber Z { get; init; }
-    public readonly TNumber W { get; init; }
+    public readonly TNumber X;
+    public readonly TNumber Y;
+    public readonly TNumber Z;
+    public readonly TNumber W;
 
     public TNumber LengthSquared
         => Dot(this, this);

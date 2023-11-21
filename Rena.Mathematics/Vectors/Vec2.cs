@@ -21,6 +21,14 @@ public static class Vec2
         where TSignedNumber : struct, ISignedNumber<TSignedNumber>
         => new(v.Y, -v.X);
 
+    public static TNumber DistanceSqr<TNumber>(this Vec2<TNumber> v, Vec2<TNumber> other)
+        where TNumber : struct, INumberBase<TNumber>
+        => (v - other).LengthSquared;
+    
+    public static TFloatingNumber Distance<TFloatingNumber>(this Vec2<TFloatingNumber> v, Vec2<TFloatingNumber> other)
+        where TFloatingNumber : struct, INumberBase<TFloatingNumber>, IRootFunctions<TFloatingNumber>
+        => TFloatingNumber.Sqrt(DistanceSqr(v, other));
+
     public static Vector2 AsVector2(this Vec2<float> vector)
         => Unsafe.BitCast<Vec2<float>, Vector2>(vector);
 

@@ -10,7 +10,7 @@
 
   <PropertyGroup Label="Nuget">
     <PackageId>Rena.Mathematics</PackageId>
-    <Version>1.2.1</Version>
+    <Version>1.3.0</Version>
     <Authors>GasInfinity</Authors>
     <Description>A math library for graphics programming supporting generic math.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>

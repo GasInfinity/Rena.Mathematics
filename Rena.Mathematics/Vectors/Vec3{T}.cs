@@ -17,9 +17,9 @@ public readonly partial struct Vec3<TNumber> : INumericVector<Vec3<TNumber>, TNu
     public static readonly Vec3<TNumber> UnitY = new(TNumber.Zero, TNumber.One, TNumber.Zero);
     public static readonly Vec3<TNumber> UnitZ = new(TNumber.Zero, TNumber.Zero, TNumber.One);
 
-    public readonly TNumber X { get; init; }
-    public readonly TNumber Y { get; init; }
-    public readonly TNumber Z { get; init; }
+    public readonly TNumber X;
+    public readonly TNumber Y;
+    public readonly TNumber Z;
 
     public TNumber LengthSquared
         => Dot(this, this);
