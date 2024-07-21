@@ -4,7 +4,7 @@ using System.Numerics;
 namespace Rena.Mathematics;
 
 public readonly partial struct Vec2<TNumber> : INumericVector<Vec2<TNumber>, TNumber>
-    where TNumber : struct, INumberBase<TNumber>
+    where TNumber : INumberBase<TNumber>
 {
     public static int Dimensions
         => 2;

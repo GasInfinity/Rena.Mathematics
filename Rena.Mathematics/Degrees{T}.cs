@@ -4,11 +4,8 @@ using System.Numerics;
 namespace Rena.Mathematics;
 
 public readonly struct Degrees<TNumber>(TNumber value) : ISpanFormattable
-    where TNumber : struct, INumberBase<TNumber>, IFloatingPointConstants<TNumber>
+    where TNumber : INumberBase<TNumber>, ITrigonometricFunctions<TNumber>
 {
-    private static readonly TNumber Deg2Rad = TNumber.Pi / TNumber.CreateTruncating(180);
-    private static readonly TNumber Rad2Deg = TNumber.CreateTruncating(180) / TNumber.Pi;
-
     public readonly TNumber Value = value;
 
     public override string ToString()
@@ -21,8 +18,8 @@ public readonly struct Degrees<TNumber>(TNumber value) : ISpanFormattable
         => destination.TryWrite(CultureInfo.InvariantCulture, $"{Value}°", out charsWritten);
 
     public static explicit operator Radians<TNumber>(Degrees<TNumber> deg)
-        => new(deg.Value * Deg2Rad);
+        => new(TNumber.DegreesToRadians(deg.Value));
 
     public static Degrees<TNumber> FromRadians(TNumber radians)
-        => new(radians * Rad2Deg);
+        => new(TNumber.RadiansToDegrees(radians));
 }

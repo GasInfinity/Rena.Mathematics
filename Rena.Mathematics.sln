@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rena.Mathematics", "Rena.Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rena.Mathematics.Tests", "Rena.Mathematics.Tests\Rena.Mathematics.Tests.csproj", "{4A3E2ADE-5F54-4295-850B-676B1E0DA110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rena.Mathematics.Benchmarks", "Rena.Mathematics.Benchmarks\Rena.Mathematics.Benchmarks.csproj", "{A0AC63BD-AC59-4FBA-88DF-36DA7F2F9879}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

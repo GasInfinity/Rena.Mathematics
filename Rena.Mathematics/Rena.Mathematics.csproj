@@ -5,12 +5,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Rena.Mathematics</RootNamespace>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
     <PackageId>Rena.Mathematics</PackageId>
-    <Version>1.3.0</Version>
+    <Version>2.0</Version>
     <Authors>GasInfinity</Authors>
     <Description>A math library for graphics programming supporting generic math.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>

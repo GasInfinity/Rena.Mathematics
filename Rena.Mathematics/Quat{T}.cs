@@ -4,7 +4,7 @@ using System.Numerics;
 namespace Rena.Mathematics;
 
 public readonly partial struct Quat<TNumber> : ISpanFormattable
-    where TNumber : struct, INumberBase<TNumber>
+    where TNumber : INumberBase<TNumber>
 {
     public static readonly Quat<TNumber> Identity = new(TNumber.Zero, TNumber.Zero, TNumber.Zero, TNumber.One);
 
