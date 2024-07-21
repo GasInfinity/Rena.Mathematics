@@ -18,9 +18,9 @@ public static class Mat4x4
     public static Mat4x4<TNumber> Rotation<TNumber>(Quat<TNumber> q)
         where TNumber : struct, INumberBase<TNumber>
     {
-        return new(TNumber.One - TNumber.CreateTruncating(2) * (q.Y * q.Y - q.Z * q.Z), TNumber.CreateTruncating(2) * (q.X * q.Y - q.Z * q.W), TNumber.CreateTruncating(2) * (q.X * q.Z + q.Y * q.W), TNumber.Zero,
-                   TNumber.CreateTruncating(2) * (q.X * q.Y + q.Z * q.W), TNumber.One - TNumber.CreateTruncating(2) * (q.X * q.X - q.Z * q.Z), TNumber.CreateTruncating(2) * (q.Y * q.Z - q.X * q.W), TNumber.Zero,
-                   TNumber.CreateTruncating(2) * (q.X * q.Z - q.Y * q.W), TNumber.CreateTruncating(2) * (q.Y * q.Z + q.X * q.W), TNumber.One - TNumber.CreateTruncating(2) * (q.X * q.X - q.Y * q.Y), TNumber.Zero,
+        return new(TNumber.One - TNumber.CreateTruncating(2) * ((q.Y * q.Y) - (q.Z * q.Z)), TNumber.CreateTruncating(2) * ((q.X * q.Y) - (q.Z * q.W)), TNumber.CreateTruncating(2) * ((q.X * q.Z) + (q.Y * q.W)), TNumber.Zero,
+                   TNumber.CreateTruncating(2) * ((q.X * q.Y) + (q.Z * q.W)), TNumber.One - TNumber.CreateTruncating(2) * ((q.X * q.X) - (q.Z * q.Z)), TNumber.CreateTruncating(2) * ((q.Y * q.Z) - (q.X * q.W)), TNumber.Zero,
+                   TNumber.CreateTruncating(2) * ((q.X * q.Z) - (q.Y * q.W)), TNumber.CreateTruncating(2) * ((q.Y * q.Z) + (q.X * q.W)), TNumber.One - TNumber.CreateTruncating(2) * ((q.X * q.X) - (q.Y * q.Y)), TNumber.Zero,
                    TNumber.Zero, TNumber.Zero, TNumber.Zero, TNumber.One);
     }
 
